@@ -1,6 +1,8 @@
 const addBookButton = document.getElementsByClassName('addBookButton')[0];
-console.log(addBookButton);
-
+const bookName = document.getElementById('bookName');
+const authorName = document.getElementById('authorName');
+const numberOfPages = document.getElementById('numberOfPages');
+const genreName = document.getElementById('genreName');
 const library = [];
 
 //this is the book constructor
@@ -28,7 +30,7 @@ addBook('Harry Potter');
 
 const displayBook = (library) => {
     for (let book of library) {
-        console.log(book);
+        console.log(book);      
     }
 }
 
@@ -37,5 +39,8 @@ displayBook(library);
 //Add Book button
 addBookButton.addEventListener('click', ()=> {
     console.log('You clicked!');
-    
+    console.log(bookName.value);
+    console.log(authorName.value);
+    console.log(numberOfPages.value);
+    console.log(genreName.value);
 })
