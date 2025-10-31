@@ -48,3 +48,16 @@
 .addBookButton {
     border: 1px solid black;
 }
+
+.cardsContainer {
+    display: grid;
+    grid-template-columns: 6;
+    grid-template-rows: 2;
+}
+
+.card {
+    height: 300px;
+    width: 100px;
+    margin: 0 30px;
+    border: 1px solid black;
+}
