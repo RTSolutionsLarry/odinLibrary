@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+.appWrapper {
+    display: grid;
+    grid-template-rows: 2fr 5fr;
+    height: 100vh;
+    border: 1px solid red;
+
+}
+
+.topSection {
+    border: 1px solid black;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+.formContainer {
+    width: 100%;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.labels {
+    padding-right: 20px;
+    text-align: right;
+}
+
+.inputs {
+    padding-left: 20px;
+    background-color: lightblue;
+}
+
+.buttonContainer {
+    text-align: center;
+    
+}
+
+.addBookButton {
+    border: 1px solid black;
+}

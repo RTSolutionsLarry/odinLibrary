@@ -1,5 +1,6 @@
 const library = [];
 
+//this is the book constructor
 function Book(name,author,numberOfPages,genre,hasBeenRead) {
     this.name = name;
     this.author = author;
@@ -8,6 +9,7 @@ function Book(name,author,numberOfPages,genre,hasBeenRead) {
     this.hasBeenRead = hasBeenRead;
 }
 
+//this function generates a unique id
 Book.prototype.bookIdGen = function() {
     const idGen = crypto.randomUUID();
     this.bookId = idGen;
