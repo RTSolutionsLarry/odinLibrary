@@ -1,3 +1,6 @@
+const addBookButton = document.getElementsByClassName('addBookButton')[0];
+console.log(addBookButton);
+
 const library = [];
 
 //this is the book constructor
@@ -30,3 +33,9 @@ const displayBook = (library) => {
 }
 
 displayBook(library);
+
+//Add Book button
+addBookButton.addEventListener('click', ()=> {
+    console.log('You clicked!');
+    
+})
