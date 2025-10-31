@@ -1,7 +1,11 @@
 const library = [];
 
-function Book(name) {
+function Book(name,author,numberOfPages,genre,hasBeenRead) {
     this.name = name;
+    this.author = author;
+    this.numberOfPages = numberOfPages;
+    this.genre = genre;
+    this.hasBeenRead = hasBeenRead;
 }
 
 Book.prototype.bookIdGen = function() {
@@ -17,7 +21,10 @@ function addBook(name) {
 
 addBook('Harry Potter');
 
-console.log(library);
-console.log(library[0]);
-console.log(library[0].bookId);
+const displayBook = (library) => {
+    for (let book of library) {
+        console.log(book);
+    }
+}
 
+displayBook(library);
