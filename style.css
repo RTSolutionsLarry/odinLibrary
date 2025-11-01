@@ -51,13 +51,32 @@
 
 .cardsContainer {
     display: grid;
-    grid-template-columns: 6;
-    grid-template-rows: 2;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
 }
 
 .card {
     height: 300px;
-    width: 100px;
-    margin: 0 30px;
+    width: 200px;
+    margin: 30px 30px;
     border: 1px solid black;
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+}
+
+.cardHeader {
+    border-bottom: dashed 1px black;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.bookTitle {
+    text-align: center;
+}
+
+.cardDetails {
+
 }
