@@ -27,13 +27,32 @@ function addBook(name,author,numberOfPages,genre,hasBeenRead) {
     library.push(newBook);
 }
 
-addBook('Harry Potter');
+const clearGrid = () => {
+    const gridItems = document.getElementsByClassName('card');
+    while (gridItems.length > 0) {
+        gridItems[0].parentNode.removeChild(gridItems[0]);
+    }
+}
 
 const displayBook = (library) => {
+    clearGrid();
     for (let book of library) {
         const card = document.createElement('div');
         card.setAttribute('class','card');
-        cardsContainer.appendChild(card);      
+        cardsContainer.appendChild(card);
+        
+        const cardHeader = document.createElement('div');
+        cardHeader.setAttribute('class','cardHeader');
+        card.appendChild(cardHeader);
+
+        const bookTitle = document.createElement('h3');
+        bookTitle.textContent = book.name;
+        bookTitle.setAttribute('class','bookTitle');
+        cardHeader.appendChild(bookTitle);
+
+        const cardDetails = document.createElement('div');
+        cardDetails.setAttribute('class','cardDescription');
+        card.appendChild(cardDetails);
     }
 }
 
@@ -50,4 +69,3 @@ addBookButton.addEventListener('click', ()=> {
     console.table(library);
     displayBook(library);
 })
-
