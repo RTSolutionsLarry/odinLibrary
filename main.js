@@ -53,6 +53,17 @@ const displayBook = (library) => {
         const cardDetails = document.createElement('div');
         cardDetails.setAttribute('class','cardDescription');
         card.appendChild(cardDetails);
+
+        const author = document.createElement('p');
+        const pages = document.createElement('p');
+        const genre = document.createElement('p');
+        author.textContent = `Author: ${book.author}`;
+        pages.textContent = `${book.numberOfPages} pages`;
+        genre.textContent = `Genre: ${book.genre}`
+        cardDetails.appendChild(author);
+        cardDetails.appendChild(genre);        
+        cardDetails.appendChild(pages);
+
     }
 }
 
