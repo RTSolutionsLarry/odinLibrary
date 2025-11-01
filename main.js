@@ -63,20 +63,20 @@ const displayBook = (library) => {
         cardDetails.appendChild(author);
         cardDetails.appendChild(genre);        
         cardDetails.appendChild(pages);
+    }
+}
 
+const clearInputs = () => {
+    const bookInputs = document.getElementsByClassName('inputs');
+    for (input of bookInputs) {
+        input.value = '';
     }
 }
 
 //Add Book button
 addBookButton.addEventListener('click', ()=> {
-    //test code to check inputs
-    console.log('You clicked!');
-    console.log(bookName.value);
-    console.log(authorName.value);
-    console.log(numberOfPages.value);
-    console.log(genreName.value);
-
     addBook(bookName.value,authorName.value,numberOfPages.value,genreName.value,false);
     console.table(library);
     displayBook(library);
+    clearInputs();
 })
