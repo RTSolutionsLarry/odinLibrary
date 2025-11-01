@@ -40,12 +40,19 @@
 
 .form {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
 }
 
 .labels {
     padding-right: 20px;
-    text-align: right;
+    padding-left: 30px;
+    text-align: left;
+}
+
+.fieldContainer {
+    margin: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;    
 }
 
 .inputs {
