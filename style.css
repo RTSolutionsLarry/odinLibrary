@@ -1,16 +1,24 @@
+:root {
+    --main-background-color: #0d1117;
+    --input-background-color: #202020;
+    --main-font-color: #DCDCDC;
+    --line-color: #484848;
+    --button-background-color: rgb(46, 154, 64);
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     border: 0;
     padding: 0;
+    color: var(--main-font-color);
 }
 
 .appWrapper {
     display: grid;
     grid-template-rows: 2fr 5fr;
     height: 100vh;
-    border: 1px solid red;
-
+    background-color: var(--main-background-color);
 }
 
 .topSection {
@@ -18,7 +26,7 @@
     display: grid;
     align-items: center;
     justify-content: center;
-    border: 1px solid black;
+    border: 1px solid var(--line-color);
     margin-bottom: 30px;
 }
 
@@ -42,16 +50,19 @@
 
 .inputs {
     padding-left: 20px;
-    background-color: lightblue;
+    background-color: var(--input-background-color);
 }
 
 .buttonContainer {
+    margin-top: 15px;
     text-align: center;
-    
 }
 
 .addBookButton {
     border: 1px solid black;
+    background-color: var(--button-background-color);
+    padding: 8px;
+
 }
 
 .cardsContainer {
@@ -64,14 +75,14 @@
     height: 250px;
     width: 200px;
     margin: 0 30px;
-    border: 1px solid black;
+    border: 1px solid var(--line-color);
     display: grid;
     grid-template-rows: 1fr 4fr;
-    margin: 0 0 30px 0;
+    margin: 0 30px 30px 30px;
 }
 
 .cardHeader {
-    border-bottom: dashed 1px black;
+    border-bottom: dashed 1px var(--line-color);
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
