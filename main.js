@@ -34,6 +34,27 @@ const clearGrid = () => {
     }
 }
 
+const cardButtonAction = (button,bookId) => {
+    button.addEventListener('click', () => {
+        let readBook = null;
+        for (let i = 0; i < library.length; i++) {
+            if (library[i].bookId === bookId) {
+                readBook = library[i];
+                break;
+            }
+        }
+        if (readBook.hasBeenRead == false) {
+            readBook.hasBeenRead = true;
+            button.classList.add('isRead');
+        } else {
+            readBook.hasBeenRead = false;
+            button.classList.remove('isRead');
+        }
+        console.log(bookId);
+        
+    })
+}
+
 const displayBook = (library) => {
     clearGrid();
     for (let book of library) {
@@ -45,7 +66,7 @@ const displayBook = (library) => {
         cardHeader.setAttribute('class','cardHeader');
         card.appendChild(cardHeader);
 
-        const bookTitle = document.createElement('h3');
+        const bookTitle = document.createElement('h4');
         bookTitle.textContent = book.name;
         bookTitle.setAttribute('class','bookTitle');
         cardHeader.appendChild(bookTitle);
@@ -53,6 +74,17 @@ const displayBook = (library) => {
         const cardDetails = document.createElement('div');
         cardDetails.setAttribute('class','cardDescription');
         card.appendChild(cardDetails);
+
+        const cardButtonContainer = document.createElement('div');
+        cardButtonContainer.setAttribute('class','cardButtonContainer');
+        card.appendChild(cardButtonContainer);
+
+        const cardButton = document.createElement('input');
+        cardButton.setAttribute('type','button');
+        cardButton.setAttribute('value','Finished Book');
+        cardButton.setAttribute('class','readButton')
+        cardButtonContainer.appendChild(cardButton);
+        cardButtonAction(cardButton,book.bookId);
 
         const author = document.createElement('p');
         const pages = document.createElement('p');
@@ -76,7 +108,6 @@ const clearInputs = () => {
 //Add Book button
 addBookButton.addEventListener('click', ()=> {
     addBook(bookName.value,authorName.value,numberOfPages.value,genreName.value,false);
-    console.table(library);
     displayBook(library);
     clearInputs();
 })
