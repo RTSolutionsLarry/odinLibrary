@@ -76,6 +76,7 @@
 .readButton {
     justify-content: center;
     margin-top: 15px;
+    transition: background-color 0.9s ease-in-out, width 1s ease;
 }
 
 .cardsContainer {
