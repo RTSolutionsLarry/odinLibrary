@@ -54,49 +54,51 @@ const cardButtonAction = (button,book,card) => {
     })
 }
 
-const displayBook = (library) => {
-    clearGrid();
-    for (let book of library) {
-        const card = document.createElement('div');
-        card.setAttribute('class','card');
-        cardsContainer.appendChild(card);
-        
-        const cardHeader = document.createElement('div');
-        cardHeader.setAttribute('class','cardHeader');
-        card.appendChild(cardHeader);
+const displayBook = (book) => {
+    const card = document.createElement('div');
+    card.setAttribute('class','card');
+    cardsContainer.appendChild(card);
+    
+    const cardHeader = document.createElement('div');
+    cardHeader.setAttribute('class','cardHeader');
+    card.appendChild(cardHeader);
 
-        const bookTitle = document.createElement('h4');
-        bookTitle.textContent = book.name;
-        bookTitle.setAttribute('class','bookTitle');
-        cardHeader.appendChild(bookTitle);
+    const bookTitle = document.createElement('h4');
+    bookTitle.textContent = book.name;
+    bookTitle.setAttribute('class','bookTitle');
+    cardHeader.appendChild(bookTitle);
 
-        const cardDetails = document.createElement('div');
-        cardDetails.setAttribute('class','cardDescription');
-        card.appendChild(cardDetails);
+    const cardDetails = document.createElement('div');
+    cardDetails.setAttribute('class','cardDescription');
+    card.appendChild(cardDetails);
 
-        const cardButtonContainer = document.createElement('div');
-        cardButtonContainer.setAttribute('class','cardButtonContainer');
-        card.appendChild(cardButtonContainer);
+    const cardButtonContainer = document.createElement('div');
+    cardButtonContainer.setAttribute('class','cardButtonContainer');
+    card.appendChild(cardButtonContainer);
 
-        const cardButton = document.createElement('input');
-        cardButton.setAttribute('type','button');
-        cardButton.setAttribute('value','Finished Book');
-        cardButton.setAttribute('class','readButton');
-        cardButton.classList.add(book.bookId);
-        cardButton.addEventListener('click', cardButtonAction(cardButton,book))
+    const cardButton = document.createElement('input');
+    cardButton.setAttribute('type','button');
+    cardButton.setAttribute('value','Finished Book');
+    cardButton.setAttribute('class','readButton');
+    cardButton.classList.add(book.bookId);
+    cardButton.addEventListener('click', cardButtonAction(cardButton,book))
 
-        cardButtonContainer.appendChild(cardButton);
+    cardButtonContainer.appendChild(cardButton);
 
-        const author = document.createElement('p');
-        const pages = document.createElement('p');
-        const genre = document.createElement('p');
-        author.textContent = `Author: ${book.author}`;
-        pages.textContent = `Number of pages: ${book.numberOfPages}`;
-        genre.textContent = `Genre: ${book.genre}`
-        cardDetails.appendChild(author);
-        cardDetails.appendChild(genre);        
-        cardDetails.appendChild(pages);
-    }
+    const author = document.createElement('p');
+    const pages = document.createElement('p');
+    const genre = document.createElement('p');
+    author.textContent = `Author: ${book.author}`;
+    pages.textContent = `Number of pages: ${book.numberOfPages}`;
+    genre.textContent = `Genre: ${book.genre}`
+    cardDetails.appendChild(author);
+    cardDetails.appendChild(genre);        
+    cardDetails.appendChild(pages);
+}
+
+const addCard = (library) => {
+    const newBook = library[library.length - 1];
+    displayBook(newBook)    
 }
 
 const clearInputs = () => {
@@ -109,6 +111,7 @@ const clearInputs = () => {
 //Add Book button
 addBookButton.addEventListener('click', ()=> {
     addBook(bookName.value,authorName.value,numberOfPages.value,genreName.value,false);
-    displayBook(library);
+//    displayBook(library);
     clearInputs();
+    addCard(library);
 })
