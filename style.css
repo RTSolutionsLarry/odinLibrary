@@ -67,15 +67,20 @@
 }
 
 .addBookButton,
-.readButton {
+.readButton,
+.clearButton {
     border: 1px solid black;
     background-color: var(--button-background-color);
     padding: 8px;
+
 }
 
-.readButton {
+.readButton,
+.clearButton {
     justify-content: center;
     margin-top: 15px;
+    border-radius: 30px;
+    width: 100px;
     transition: background-color 0.9s ease-in-out, width 1s ease;
 }
 
@@ -107,6 +112,8 @@
 .cardButtonContainer {
     border-top: dashed 1px var(--line-color);
     text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .bookTitle {
