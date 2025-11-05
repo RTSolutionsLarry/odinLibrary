@@ -56,6 +56,12 @@ const cardButtonAction = (button,book,card) => {
     })
 }
 
+const clearCardButton = (id,card) => {
+    let filter = library.filter(book => book.bookId !== id);
+    library = filter;
+    card.remove();
+}
+
 const displayBook = (book) => {
     const card = document.createElement('div');
     card.setAttribute('class','card');
@@ -86,6 +92,15 @@ const displayBook = (book) => {
     cardButton.addEventListener('click', cardButtonAction(cardButton,book))
 
     cardButtonContainer.appendChild(cardButton);
+
+    const clearButton = document.createElement('input');
+    clearButton.setAttribute('type','button');
+    clearButton.setAttribute('value','Remove Book');
+    clearButton.setAttribute('class','clearButton');
+    clearButton.classList.add(book.bookId);
+    //clearButton.addEventListener('click', clearCardButton(book.bookId,card));
+
+    cardButtonContainer.appendChild(clearButton);
 
     const author = document.createElement('p');
     const pages = document.createElement('p');
