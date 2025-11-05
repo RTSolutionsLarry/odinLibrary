@@ -56,10 +56,29 @@ const cardButtonAction = (button,book,card) => {
     })
 }
 
+const cardRemoval = (card) => {
+    card.remove();
+}
+
+const arrayRemoval = (book) => {
+    const index = library.findIndex(item => item['bookid'] === book.bookId);
+    console.log(index);
+
+    if (index !== -1) {
+    library.splice(index, 1);
+    }
+    console.log(library);
+    return library; 
+    
+}
+
 const removeCardButton = (button,book,card) => {
     button.addEventListener('click', () => {
         console.log('Inside Remove button');
-        
+        cardRemoval(card);
+        return arrayRemoval(book);
+        console.log(library);
+
     })
 }
 
