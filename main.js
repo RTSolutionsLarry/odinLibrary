@@ -52,7 +52,6 @@ const cardButtonAction = (button,book,card) => {
                 break;
             }
         }
-        console.log(book);  
     })
 }
 
@@ -61,7 +60,7 @@ const cardRemoval = (card) => {
 }
 
 const arrayRemoval = (book) => {
-    const index = library.findIndex(item => item['bookid'] === book.bookId);
+    const index = library.findIndex(item => item.bookId === book.bookId);
     console.log(index);
 
     if (index !== -1) {
@@ -77,8 +76,6 @@ const removeCardButton = (button,book,card) => {
         console.log('Inside Remove button');
         cardRemoval(card);
         return arrayRemoval(book);
-        console.log(library);
-
     })
 }
 
