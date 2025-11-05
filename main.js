@@ -4,7 +4,7 @@ const authorName = document.getElementById('authorName');
 const numberOfPages = document.getElementById('numberOfPages');
 const genreName = document.getElementById('genreName');
 const cardsContainer = document.getElementsByClassName('cardsContainer')[0];
-const library = [];
+let library = [];
 
 //this is the book constructor
 function Book(name,author,numberOfPages,genre,hasBeenRead) {
@@ -56,15 +56,17 @@ const cardButtonAction = (button,book,card) => {
     })
 }
 
-const clearCardButton = (id,card) => {
-    let filter = library.filter(book => book.bookId !== id);
-    library = filter;
-    card.remove();
+const removeCardButton = (button,book,card) => {
+    button.addEventListener('click', () => {
+        console.log('Inside Remove button');
+        
+    })
 }
 
 const displayBook = (book) => {
     const card = document.createElement('div');
     card.setAttribute('class','card');
+    card.classList.add(book.bookId);
     cardsContainer.appendChild(card);
     
     const cardHeader = document.createElement('div');
@@ -88,19 +90,19 @@ const displayBook = (book) => {
     cardButton.setAttribute('type','button');
     cardButton.setAttribute('value','Finished Book');
     cardButton.setAttribute('class','readButton');
-    cardButton.classList.add(book.bookId);
-    cardButton.addEventListener('click', cardButtonAction(cardButton,book))
+    //cardButton.classList.add(book.bookId);
+    cardButton.addEventListener('click', cardButtonAction(cardButton,book));
 
     cardButtonContainer.appendChild(cardButton);
 
-    const clearButton = document.createElement('input');
-    clearButton.setAttribute('type','button');
-    clearButton.setAttribute('value','Remove Book');
-    clearButton.setAttribute('class','clearButton');
-    clearButton.classList.add(book.bookId);
-    //clearButton.addEventListener('click', clearCardButton(book.bookId,card));
+    const removeButton = document.createElement('input');
+    removeButton.setAttribute('type','button');
+    removeButton.setAttribute('value','Remove Book');
+    removeButton.setAttribute('class','removeButton');
+    removeButton.classList.add(book.bookId);
+    removeButton.addEventListener('click', removeCardButton(removeButton,book,card));
 
-    cardButtonContainer.appendChild(clearButton);
+    cardButtonContainer.appendChild(removeButton);
 
     const author = document.createElement('p');
     const pages = document.createElement('p');
