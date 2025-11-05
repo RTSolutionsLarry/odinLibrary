@@ -43,9 +43,11 @@ const cardButtonAction = (button,book,card) => {
                 if (readBook.hasBeenRead == false) {
                     readBook.hasBeenRead = true;
                     button.classList.add('isRead');
+                    button.value = 'Read!';
                 } else {
                     readBook.hasBeenRead = false;
                     button.classList.remove('isRead');
+                    button.value = 'Finished Book';
                 }
                 break;
             }
