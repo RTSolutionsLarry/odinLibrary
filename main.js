@@ -34,24 +34,23 @@ const clearGrid = () => {
     }
 }
 
-const cardButtonAction = (button,bookId) => {
+const cardButtonAction = (button,book,card) => {
     button.addEventListener('click', () => {
         let readBook = null;
         for (let i = 0; i < library.length; i++) {
-            if (library[i].bookId === bookId) {
+            if (library[i].bookId === book.bookId) {
                 readBook = library[i];
+                if (readBook.hasBeenRead == false) {
+                    readBook.hasBeenRead = true;
+                    button.classList.add('isRead');
+                } else {
+                    readBook.hasBeenRead = false;
+                    button.classList.remove('isRead');
+                }
                 break;
             }
         }
-        if (readBook.hasBeenRead == false) {
-            readBook.hasBeenRead = true;
-            button.classList.add('isRead');
-        } else {
-            readBook.hasBeenRead = false;
-            button.classList.remove('isRead');
-        }
-        console.log(bookId);
-        
+        console.log(book);  
     })
 }
 
@@ -82,9 +81,11 @@ const displayBook = (library) => {
         const cardButton = document.createElement('input');
         cardButton.setAttribute('type','button');
         cardButton.setAttribute('value','Finished Book');
-        cardButton.setAttribute('class','readButton')
+        cardButton.setAttribute('class','readButton');
+        cardButton.classList.add(book.bookId);
+        cardButton.addEventListener('click', cardButtonAction(cardButton,book))
+
         cardButtonContainer.appendChild(cardButton);
-        cardButtonAction(cardButton,book.bookId);
 
         const author = document.createElement('p');
         const pages = document.createElement('p');
