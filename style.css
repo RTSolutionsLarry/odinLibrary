@@ -115,3 +115,7 @@
 .cardDescription p {
     margin: 15px;
 }
+
+.isRead {
+    background-color: blue;
+}
